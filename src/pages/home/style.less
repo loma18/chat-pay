@@ -1,0 +1,41 @@
+@import '../../theme/theme1.less';
+
+#chat-home {
+    ul {
+        .home-item {
+            padding   : 0 10px;
+            height    : 50px;
+            text-align: left;
+
+            &:hover {
+                background: @hoverColor;
+            }
+
+            >div {
+                display: flex;
+            }
+
+            .left-icon {
+                width       : 44px;
+                padding     : 3px 0;
+                margin-right: 10px;
+
+                img {
+                    width        : 44px;
+                    height       : 44px;
+                    border       : 1px solid #ddd;
+                    border-radius: 5px;
+                }
+            }
+
+            h3 {
+                margin-bottom: 3px;
+            }
+
+            p {
+                font-size: 0.6rem;
+                color    : rgba(0, 0, 0, 0.2);
+            }
+        }
+    }
+}

@@ -2,10 +2,13 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import Header from '@/components/header';
 import Footer from '@/components/footer';
-import Home from '@/pages/home';
-import Booklist from '@/pages/booklist';
+import Home from '@/pages/home/router';
+// import Booklist from '@/pages/booklist';
 import { createSwitchRoutes } from '@/utils/router';
+import Loader from '@/components/AsyncComponent';
 import '@/App.less';
+
+const Booklist = Loader(() => import('@/pages/booklist'));
 
 @withRouter
 class App extends Component {
@@ -13,18 +16,17 @@ class App extends Component {
     const routeConfig = [
       {
         path: this.props.match.path,
-        redirect: {
-          path: this.props.match.path + 'chat'
-        },
         component: Home,
         comProps: {
-        }
+        },
+        routeProps: { exact: true }
       },
       {
         path: this.props.match.path + 'chat',
         component: Home,
         comProps: {
-        }
+        },
+        routeProps: { exact: false }
       },
       {
         path: this.props.match.path + 'booklist',

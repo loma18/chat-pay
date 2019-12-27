@@ -1,6 +1,19 @@
-#chat-header{
-    height: 30px;
-    line-height: 30px;
-    font-size: 1.2rem;
-    text-align: center;
+@import '../../theme/theme1.less';
+
+#chat-header {
+    height     : 40px;
+    background : @headerColor;
+    line-height: 40px;
+    font-size  : 1.4rem;
+    text-align : center;
+
+    .ant-input {
+        width         : 60%;
+        vertical-align: text-top;
+    }
+
+    .operate {
+        float       : right;
+        margin-right: 10px;
+    }
 }

@@ -1,21 +1,24 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { Menu, Icon } from 'antd';
+import { inject } from 'mobx-react';
 import './style.less';
 
 const { Item } = Menu;
 
-export default @withRouter class Footer extends Component {
+@withRouter
+@inject('appStore')
+class Footer extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            current: 'chat'
+            current: props.location.pathname.replace('/', '')
         }
     }
 
     handleClick = e => {
-        debugger
+        this.props.appStore.setHeaderType();
         this.setState({
             current: e.key,
         }, () => {
@@ -37,3 +40,5 @@ export default @withRouter class Footer extends Component {
         </div>
     }
 }
+
+export default Footer;
